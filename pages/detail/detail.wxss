@@ -1,0 +1,111 @@
+page{
+  padding-bottom: 90rpx;
+}
+
+swiper{
+  height: 70vw;
+  text-align: center;
+  border-bottom: 1rpx solid #dedede;
+}
+swiper swiper-item image{
+  width: 60%;
+}
+
+.goods_price{
+  color: red;
+  font-size: 30rpx;
+  font-weight: bold;
+  padding: 10rpx 0;
+}
+.goods_title_row{
+  display: flex;
+  border-bottom: 5rpx solid #dedede;
+  padding: 15rpx 0;
+}
+.goods_title_row .goods_title{
+  flex: 1;
+  padding-left: 5rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+/* .goods_title_row .goods_collect{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1rpx solid #ccc;
+}
+.goods_title_row .goods_collect text{
+  font-size: 40rpx;
+}
+.goods_title_row .goods_collect .iconshoucang3{
+  color: #ffa500;
+}
+.goods_title_row .goods_collect .collect_text{
+  font-size: 24rpx;
+} */
+
+.goods_detail{
+  width: 100vw;
+}
+.goods_detail .goods_detail_title{
+  color: red;
+  font-weight: bold;
+  padding: 15rpx 0;
+  border-bottom: 1rpx solid #dedede;
+}
+.goods_detail .goods_detail_img{
+  width: 100%;
+}
+.goods_detail .goods_detail_img image{
+  width: 100%;
+}
+
+.bottom_tool{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+.bottom_tool .tool_item{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.bottom_tool .tool_item button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.bottom_tool .tool_item text{
+  font-size: 40rpx;
+}
+.bottom_tool .tool_item view{
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}
+.bottom_tool .btn_addCart{
+  flex: 2;
+  background-color: #ffa500;
+  color: #fff;
+  font-weight: bold;
+}
+.bottom_tool .btn_buy{
+  flex: 2;
+  background-color: #eb4450;
+  color: #fff;
+  font-weight: bold;
+}

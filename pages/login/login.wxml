@@ -1,0 +1,12 @@
+<view class="login_main">
+  <view class="login_title">请确认以下授权信息</view>
+  <view class="login_prompt">获取你的信息（头像，昵称等）</view>
+  <view class="login_select_wrap">
+    <navigator class="login_cancle" url="/pages/index/index" open-type="switchTab">
+      <button>再想想</button>
+    </navigator>
+    <view class="login_confirm">
+      <button open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">同意</button>
+    </view>
+  </view>
+</view>

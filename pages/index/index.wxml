@@ -1,0 +1,38 @@
+<view class="xt_index">
+  <!-- 搜索框 -->
+  <searchInput value="{{value}}"></searchInput>
+  <!-- 轮播图 -->
+  <view class="index_swiper">
+    <swiper circular autoplay indicator-dots>
+      <swiper-item wx:for="{{bannerImages}}" wx:key="id">
+        <navigator url="{{item.toTargetUrl}}">
+          <image src="{{item.imageUrl}}" mode="widthFix"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 导航列表 -->
+  <view class="index_cate">
+    <view class="cate_item"
+          wx:for="{{navigateImages}}" 
+          wx:key="id" 
+          bindtap="handleItemSelect" 
+          data-type_id="{{item.type_id}}"
+    >
+      <image src="{{item.imageUrl}}" mode="widthFix"></image>
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+  <!-- 每日上新 -->
+  <view class="index_daily">
+    <view class="daily_title">每日上新</view>
+    <view class="daily_content">
+      <navigator class="content_item" wx:for="{{dailyGoods}}" wx:key="id" url="/pages/detail/detail?goodsID={{item.goodsID}}">
+        <image src="{{item.main_img}}" mode="widthFix"></image>
+        <view class="goods_title">{{item.title}}</view>
+        <view class="goods_price">￥{{item.price}}</view>
+      </navigator>
+    </view>
+    
+  </view>
+</view>

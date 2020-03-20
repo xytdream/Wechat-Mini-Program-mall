@@ -1,0 +1,19 @@
+<tabs tabs="{{tabs}}" bindtabsItemChange="handletabsItemChange">
+  <view class="first_tab">
+    <navigator class="good_item" 
+                wx:for="{{collect}}" 
+                wx:key="goodsID"
+                url="/pages/detail/detail?goodsID={{item.goodsID}}"
+    >
+      <!-- 左侧图片容器 -->
+      <view class="good_img_wrap">
+        <image src="{{item.main_img}}" mode="widthFix"></image>
+      </view>
+      <!-- 右侧信息容器 -->
+      <view class="good_info_wrap">
+        <view class="good_name">{{item.title}}</view>
+        <view class="good_price">￥{{item.price}}</view>
+      </view>
+    </navigator>
+  </view>
+</tabs>

@@ -1,0 +1,18 @@
+<view class="about_body">
+  <text>个人练习作品，欢迎各位交流</text>
+  <view class="iconfont icongithub github">
+    <text>https://github.com/xytdream</text>
+  </view>
+  <view class="iconfont iconCN_bilibiliB bilibili">
+    <text>肌肉国钟</text>
+  </view>
+  <view class="iconfont iconego-blog blog">
+    <text>http://blog.xytdream.online/</text>
+  </view>
+  <view class="iconfont iconweibo weibo">
+    <text>暂时木有~~~</text>
+  </view>
+  <view class="iconfont icongongzhonghao gzh">
+    <text>有账号但暂时未使用~~~</text>
+  </view>
+</view>

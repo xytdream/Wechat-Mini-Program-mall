@@ -1,0 +1,94 @@
+.revice_address_row .btn_address{
+  padding: 20rpx;
+}
+.revice_address_row .user_info_row{
+  display: flex;
+  padding: 20rpx;
+  font-size: 26rpx;
+}
+.revice_address_row .user_info_row .user_info{
+  flex: 7;
+}
+.revice_address_row .user_info_row .user_phone{
+  flex: 3;
+  text-align: right;
+}
+
+.wrap_title{
+  padding: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: red;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.good_item{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 20rpx 5rpx;
+}
+.good_item .good_info_wrap{
+  flex: 7;
+  display: flex;
+}
+.good_item .good_info_wrap .good_img_wrap{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.good_img_wrap image{
+  width: 70%;
+}
+.good_item .good_info_wrap .good_info_wrap{
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.good_info_wrap .good_name{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.good_info_wrap .good_price{
+  color: red;
+}
+
+.bottom_tool{
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  border-top: 1rpx solid #ccc;
+}
+
+.bottom_tool .total_price_wrap{
+  flex: 5;
+  text-align: right;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.total_price text{
+  color: red;
+  font-weight: bold;
+}
+.total_price_wrap .fare{
+  font-size: 20rpx;
+}
+.bottom_tool .order_pay_wrap{
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+}

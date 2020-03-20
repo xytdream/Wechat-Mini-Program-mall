@@ -1,0 +1,35 @@
+page{
+  padding: 30rpx;
+}
+.about_body{
+  display: flex;
+  flex-direction: column;
+  
+}
+.github{
+  color: black;
+}
+.bilibili{
+  color: pink;
+}
+.blog{
+  color: greenyellow;
+}
+.weibo{
+  color: red;
+}
+.gzh{
+  color: green;
+}
+.about_body .iconfont{
+  font-size: 60rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.about_body .iconfont text{
+  color: black;
+  font-size: 28rpx;
+  padding: 20rpx;
+}

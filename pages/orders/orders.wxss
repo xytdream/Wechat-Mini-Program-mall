@@ -1,0 +1,106 @@
+page{
+  background-color: rgba(238, 238, 238, 0.911);
+  padding-bottom: 50rpx;
+}
+.order_detail{
+  margin: 20rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 15rpx;
+  background-color: #fff;
+}
+.order_detail .good_item{
+  display: flex;
+  height: 250rpx;
+  /* border-bottom: 1px solid #ccc; */
+}
+.order_detail .good_item .good_img_wrap{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_detail .good_item .good_img_wrap image{
+  width: 50%;
+}
+.order_detail .good_item .good_info_wrap{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.order_detail .good_item .good_info_wrap .good_name{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.order_detail .good_item .good_info_wrap .good_price{
+  color: red;
+  font-size: 30rpx;
+}
+
+.order_detail .order_info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.order_detail .order_info .order_num{
+  font-size: 22rpx;
+  color: black;
+  padding: 10rpx 0 10rpx 20rpx;
+}
+.order_detail .order_info .order_num text{
+  font-size: 20rpx;
+  color: #a4b0be;
+  padding-left: 10rpx;
+}
+.order_detail .order_info .total_wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 10rpx;
+  font-size: 22rpx;
+}
+.order_detail .order_info .total_wrap .totalNum text,.totalPrice text{
+  color: red;
+}
+
+.order_detail .order_btn_wrap{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20rpx;
+}
+.order_detail .order_btn_wrap .order_btn,.order_afterSale{
+  color: #eb4d4b;
+  font-size: 26rpx;
+  border: 1rpx solid #eb4d4b;
+  border-radius: 15rpx;
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+}
+
+.order_null{
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.order_null .icondingdan{
+  font-size: 40rpx;
+  padding: 10rpx;
+}
+.order_null .warn_text{
+  font-size: 28rpx;
+  color: #666;
+  padding: 10rpx;
+}
+.order_null .warn_prompt{
+  font-size: 24rpx;
+  color: #ccc;
+  padding: 10rpx;
+}

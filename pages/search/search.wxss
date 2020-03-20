@@ -1,0 +1,25 @@
+page{
+  background-color: #dedede;
+  padding: 10rpx;
+}
+.search_main{
+  height: 60rpx;
+  display: flex;
+}
+.search_main .search_input{
+  flex: 9;
+  height: 100%;
+  background-color: #fff;
+  padding-left: 30rpx;
+  border-radius: 15rpx;
+}
+.search_main .search_btn{
+  flex: 1;
+  height: 100%;
+  font-size: 28rpx;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20rpx;
+}

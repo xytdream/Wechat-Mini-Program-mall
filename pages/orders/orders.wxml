@@ -1,0 +1,230 @@
+<tabs tabs="{{tabs}}" bindtabsItemChange="handletabsItemChange">
+  <!-- 全部订单 -->
+  <block wx:if="{{tabs[0].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{ordersAll.length != 0}}">
+      <view wx:for="{{ordersAll}}" wx:key="id" class="order_detail">
+        <!-- 商品信息 -->
+        <navigator class="good_item" wx:for="{{item.goods}}" wx:key="goodsID" wx:for-item="itemGoods" 
+                    url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+          </view>
+          <!-- zhong信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 订单信息 -->
+        <view class="order_info">
+          <view class="order_num">
+            {{item.orderNum}}<text class="iconfont iconfuzhi"></text>
+          </view>
+          <view class="total_wrap">
+            <view class="totalNum">共<text>{{item.totalNum}}</text>件商品</view>
+            <view class="totalPrice">合计￥<text>{{item.totalPrice}}</text></view>
+          </view>
+        </view>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view wx:if="{{item.logisticsID == 0}}" class="order_btn" bindtap="handleToPay" data-orderNum='{{item.orderNum}}'>去支付</view>
+          <view wx:if="{{item.logisticsID == 1}}" class="order_btn" bindtap="handleRemindShip">提醒发货</view>
+          <view wx:if="{{item.logisticsID == 2}}" class="order_btn" bindtap="handleConfirmReceiving">确认收货</view>
+          <view wx:if="{{item.logisticsID == 3}}" class="order_afterSale" bindtap="handleAfterSale">申请售后</view>
+          <view wx:if="{{item.logisticsID == 3}}" class="order_btn" bindtap="handleRefund">申请退款</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关订单</view>
+        <view class="warn_prompt">可以去看看有哪些想买的~</view>
+      </view>
+    </block>
+  </block>
+
+
+  <!-- 待付款 -->
+  <block wx:elif="{{tabs[1].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{ordersWaitPay.length != 0}}">
+      <view wx:for="{{ordersWaitPay}}" wx:key="id" class="order_detail">
+        <!-- 商品信息 -->
+        <navigator class="good_item" wx:for="{{item.goods}}" wx:key="goodsID" wx:for-item="itemGoods"
+                    url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+          </view>
+          <!-- 右侧信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 订单信息 -->
+        <view class="order_info">
+          <view class="order_num">
+            {{item.orderNum}}<text class="iconfont iconfuzhi"></text>
+          </view>
+          <view class="total_wrap">
+            <view class="totalNum">共<text>{{item.totalNum}}</text>件商品</view>
+            <view class="totalPrice">合计￥<text>{{item.totalPrice}}</text></view>
+          </view>
+        </view>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view class="order_btn" bindtap="handleToPay" data-orderNum='{{item.orderNum}}'>去支付</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关订单</view>
+        <view class="warn_prompt">可以去看看有哪些想买的~</view>
+      </view>
+    </block>
+  </block>
+
+
+  <!-- 待发货 -->
+  <block wx:elif="{{tabs[2].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{ordersWaitShip.length != 0}}">
+      <view wx:for="{{ordersWaitShip}}" wx:key="id" class="order_detail">
+        <!-- 商品信息 -->
+        <navigator class="good_item" wx:for="{{item.goods}}" wx:key="goodsID" wx:for-item="itemGoods"
+                    url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+          </view>
+          <!-- zhong信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 订单信息 -->
+        <view class="order_info">
+          <view class="order_num">
+            {{item.orderNum}}<text class="iconfont iconfuzhi"></text>
+          </view>
+          <view class="total_wrap">
+            <view class="totalNum">共<text>{{item.totalNum}}</text>件商品</view>
+            <view class="totalPrice">合计￥<text>{{item.totalPrice}}</text></view>
+          </view>
+        </view>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view class="order_btn" bindtap="handleRemindShip">提醒发货</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关订单</view>
+        <view class="warn_prompt">可以去看看有哪些想买的~</view>
+      </view>
+    </block>
+  </block>
+
+
+  <!-- 待收货 -->
+  <block wx:elif="{{tabs[3].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{ordersWaitReceiving.length != 0}}">
+      <view wx:for="{{ordersWaitReceiving}}" wx:key="id" class="order_detail">
+        <!-- 商品信息 -->
+        <navigator class="good_item" wx:for="{{item.goods}}" wx:key="goodsID" wx:for-item="itemGoods"
+                    url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+          </view>
+          <!-- 右侧信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 订单信息 -->
+        <view class="order_info">
+          <view class="order_num">
+            {{item.orderNum}}<text class="iconfont iconfuzhi"></text>
+          </view>
+          <view class="total_wrap">
+            <view class="totalNum">共<text>{{item.totalNum}}</text>件商品</view>
+            <view class="totalPrice">合计￥<text>{{item.totalPrice}}</text></view>
+          </view>
+        </view>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view class="order_btn" bindtap="handleConfirmReceiving" data-orderNum = "{{item.orderNum}}">确认收货</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关订单</view>
+        <view class="warn_prompt">可以去看看有哪些想买的~</view>
+      </view>
+    </block>
+  </block>
+
+
+  <!-- 退款售后 -->
+  <block wx:else="{{tabs[4].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{ordersCompleted.length != 0}}">
+      <view wx:for="{{ordersCompleted}}" wx:key="id" class="order_detail">
+        <!-- 商品信息 -->
+        <navigator class="good_item" wx:for="{{item.goods}}" wx:key="goodsID" wx:for-item="itemGoods"
+                    url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+          </view>
+          <!-- 右侧信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 订单信息 -->
+        <view class="order_info">
+          <view class="order_num">
+            {{item.orderNum}}<text class="iconfont iconfuzhi"></text>
+          </view>
+          <view class="total_wrap">
+            <view class="totalNum">共<text>{{item.totalNum}}</text>件商品</view>
+            <view class="totalPrice">合计￥<text>{{item.totalPrice}}</text></view>
+          </view>
+        </view>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view class="order_afterSale" bindtap="handleAfterSale">申请售后</view>
+          <view class="order_btn" bindtap="handleRefund">申请退款</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关订单</view>
+        <view class="warn_prompt">可以去看看有哪些想买的~</view>
+      </view>
+    </block>
+  </block>
+</tabs>

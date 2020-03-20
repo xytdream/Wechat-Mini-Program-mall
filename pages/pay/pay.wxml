@@ -1,0 +1,54 @@
+<!--收货地址-->
+<!--收货地址-->
+<view class="revice_address_row">
+  <!-- 当收货地址不存在时，显示按钮 空对象的bool类型也是true -->
+  <view class="btn_address" wx:if="{{!address.userName}}">
+    <button bindtap="handleChooseAddress" type="primary" plain>收货地址</button>
+  </view>
+  <!-- 当收货地址存在时，显示收货地址信息 -->
+  <view wx:else class="user_info_row" bindtap="handleChooseAddress">
+    <view class="user_info">
+      <view>{{address.userName}}</view>
+      <view>{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</view>
+    </view>
+    <view class="user_phone">{{address.telNumber}}</view>
+  </view>
+</view>
+
+<!-- 购物车内容 -->
+<view class="good_content_wrap">
+  <view class="wrap_title">待支付</view>
+  <view class="wrap_main">
+    <!-- 当cart数组长度不为0的时候，显示商品信息。否则提示购物车为空 -->
+    <view class="good_item"
+        wx:for="{{pay}}"
+        wx:key="id"
+    >
+      <!-- 商品信息结构 -->
+      <navigator class="good_info_wrap">
+        <!-- 左侧图片容器 -->
+        <view class="good_img_wrap">
+          <image src="{{item.img}}" mode="widthFix"></image>
+        </view>
+        <!-- 右侧信息容器 -->
+        <view class="good_info_wrap">
+          <view class="good_name">{{item.title}}</view>
+          <view class="good_price">￥{{item.price}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<!-- 底部工具栏 -->
+<view class="bottom_tool">
+  <!-- 总价格 -->
+  <view class="total_price_wrap">
+    <view class="total_price">
+      合计：<text>￥{{totalPrice}}</text>
+    </view>
+    <view class="fare">包含运费</view>
+  </view>
+  <!-- 结算 -->
+  <view class="order_pay_wrap" bindtap="handlePay">支付({{totalNum}})</view>
+</view>

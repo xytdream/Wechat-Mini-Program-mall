@@ -1,0 +1,46 @@
+pages{
+  height: 100%;
+}
+.cates{
+  height: 100%;
+}
+.cates .cates_container{
+  height: calc(100vh - 60rpx);
+  display: flex;
+}
+.cates .cates_container .leftMenu{
+  flex: 1;
+  border-right: 1px solid #ccc;
+}
+.menu_item{
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.active{
+  color: #eb4d4b;
+  border-left: 5rpx solid currentColor;
+}
+
+.cates .cates_container .rightContents{
+  flex: 5;
+}
+.content_item{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.content_item navigator{
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.content_item navigator image{
+  width: 50%;
+}
