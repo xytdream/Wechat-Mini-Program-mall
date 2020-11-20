@@ -16,10 +16,10 @@ Page({
     // const userInfo = app.userInfo
     const userInfo = app.userInfo.nickName ? app.userInfo : wx.getStorageSync("userInfo")
     app.userInfo = userInfo
-    const collect = wx.getStorageSync("collect")||[]
+    // const collect = wx.getStorageSync("collect")||[]
     this.setData({
       userInfo,
-      collectNums: collect.length
+      // collectNums: collect.length
     })
   },
   //退出

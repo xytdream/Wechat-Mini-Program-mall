@@ -1,21 +1,25 @@
 <searchInput value="{{value}}"></searchInput>
 <tabs tabs="{{tabs}}" bindtabsItemChange="handletabsItemChange">
+  <!-- 综合栏 -->
   <block wx:if="{{tabs[0].isActive}}">
     <!-- 有符合条件商品时显示商品列表 -->
     <view class="first_tab" wx:if="{{goodsList.length !== 0}}">
       <navigator class="good_item" 
                  wx:for="{{goodsList}}" 
                  wx:key="id"
-                 url="/pages/detail/detail?goodsID={{item.goodsID}}"
+                 url="/pages/detail/detail?goodsID={{item._id}}"
       >
         <!-- 左侧图片容器 -->
         <view class="good_img_wrap">
-          <image src="{{item.main_img}}" mode="widthFix"></image>
+          <image src="{{item.goodImgs[0]}}" mode="aspectFit"></image>
         </view>
         <!-- 右侧信息容器 -->
         <view class="good_info_wrap">
           <view class="good_name">{{item.title}}</view>
-          <view class="good_price">￥{{item.price}}</view>
+          <view class="good_price_row">
+            <view class="good_price">￥{{item.price}}</view>
+            <view class="good_condition">{{item.condition}}</view>
+          </view>
         </view>
       </navigator>
     </view>
@@ -25,22 +29,26 @@
       <navigator url="/pages/index/index" open-type="switchTab">去首页逛逛</navigator>
     </view>
   </block>
+  <!-- 按价格排序 -->
   <block wx:else="{{tabs[1].isActive}}">
      <!-- 有符合条件商品时显示商品列表 -->
     <view class="first_tab" wx:if="{{goodsListPriceAsc.length !== 0}}">
       <navigator class="good_item" 
                  wx:for="{{goodsListPriceAsc}}" 
                  wx:key="id"
-                 url="/pages/detail/detail?goodsID={{item.goodsID}}"
+                 url="/pages/detail/detail?goodsID={{item._id}}"
       >
         <!-- 左侧图片容器 -->
         <view class="good_img_wrap">
-          <image src="{{item.main_img}}" mode="widthFix"></image>
+          <image src="{{item.goodImgs[0]}}" mode="aspectFit"></image>
         </view>
         <!-- 右侧信息容器 -->
         <view class="good_info_wrap">
           <view class="good_name">{{item.title}}</view>
-          <view class="good_price">￥{{item.price}}</view>
+          <view class="good_price_row">
+            <view class="good_price">￥{{item.price}}</view>
+            <view class="good_condition">{{item.condition}}</view>
+          </view>
         </view>
       </navigator>
     </view>

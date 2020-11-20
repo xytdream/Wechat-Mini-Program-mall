@@ -2,5 +2,5 @@
   "usingComponents": {
     "tabs": "../../components/tabs/tabs"
   },
-  "navigationBarTitleText":"我的购入"
+  "navigationBarTitleText": "我的售出"
 }

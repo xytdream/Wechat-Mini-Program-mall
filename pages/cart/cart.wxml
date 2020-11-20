@@ -19,12 +19,15 @@
         <navigator class="cart_info_wrap" url="/pages/detail/detail?goodsID={{item.goodsID}}">
           <!-- 左侧图片容器 -->
           <view class="good_img_wrap">
-            <image src="{{item.img}}" mode="widthFix"></image>
+            <image src="{{item.goodInfo.goodImgs[0]}}" mode="aspectFit"></image>
           </view>
           <!-- 右侧信息容器 -->
           <view class="good_info_wrap">
-            <view class="good_name">{{item.title}}</view>
-            <view class="good_price">￥{{item.price}}</view>
+            <view class="good_name">{{item.goodInfo.title}}</view>
+            <view class="good_price_row">
+              <view class="good_price">￥{{item.goodInfo.price}}</view>
+              <view class="good_condition">{{item.goodInfo.condition}}</view>
+            </view>
           </view>
         </navigator>
         <view class="good_delete_wrap" bindtap="handleItemDelete" data-id="{{item.goodsID}}">

@@ -1,6 +1,7 @@
 const db = wx.cloud.database()
 const orders = db.collection("orders")
 const cp = db.collection("cart_products")
+const goods = db.collection("goods")
 const app = getApp()
 
 Page({
@@ -40,7 +41,7 @@ Page({
     let totalPrice = 0
     pay.forEach(v => {
       totalNum++
-      totalPrice += Number(v.price)
+      totalPrice += Number(v.goodInfo.price)
     })
     //把数据重新设置回data中
     this.setData({
@@ -147,7 +148,7 @@ Page({
               const logisticsID = 1
               const logistics = "待发货"
               //创建订单
-              that.createOrder(logisticsID, logistics)
+              _this.createOrder(logisticsID, logistics)
               wx.showToast({
                 title: '支付成功',
                 icon: 'success'
@@ -161,7 +162,7 @@ Page({
               const logisticsID = 0
               const logistics = "待付款"
               //创建订单
-              that.createOrder(logisticsID, logistics)
+              _this.createOrder(logisticsID, logistics)
               wx.showToast({
                 title: '支付失败',
                 icon: 'none'
@@ -216,12 +217,19 @@ Page({
         logisticsID: logisticsID
       }
     }).then(res =>{
-      //从购物车中删除已经支付成功的商品
       pay.forEach(v =>{
+        //从所有用户的购物车中删除已生成订单的商品
         cp.where({
-          _openid: app.userInfo._openid,
           goodsID: v.goodsID
         }).remove()
+        // 从商品数据库中更新商品售卖状态saleStatus
+        goods.where({
+          _id: v.goodsID
+        }).update({
+          data:{
+            saleStatus: "已售出"
+          }
+        })
       })
     })
   }

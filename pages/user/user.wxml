@@ -39,7 +39,7 @@
     <!-- 我的订单 -->
     <view class="orders_wrap">
       <navigator class="orders_title" url="/pages/orders/orders?id=0">
-        <view>我的订单</view>
+        <view>我的购入</view>
         <view class="orders_all">
           <view>查看全部订单</view>
           <text class="iconfont iconarrow-right-copy-copy-copy"></text>
@@ -61,6 +61,26 @@
         <navigator url="/pages/orders/orders?id=4">
           <text class="iconfont icontuikuanshouhou"></text>
           <view class="content_title">退款/售后</view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 我出售的商品 -->
+    <view class="orders_wrap">
+      <navigator class="orders_title">
+        <view>我的售出</view>
+        <view class="orders_all">
+          <!-- <view>查看全部订单</view> -->
+          <text class="iconfont iconarrow-right-copy-copy-copy"></text>
+        </view>
+      </navigator >
+      <view class="orders_content">
+        <navigator url="/pages/saleOrders/saleOrders?id=0">
+          <text class="iconfont iconpublish"></text>
+          <view class="content_title">已发布</view>
+        </navigator>
+        <navigator url="/pages/saleOrders/saleOrders?id=1">
+          <text class="iconfont iconyishouchu"></text>
+          <view class="content_title">已卖出</view>
         </navigator>
       </view>
     </view>

@@ -68,15 +68,21 @@
 }
 .index_daily .daily_content .content_item{
   width: 40%;
+  height: 500rpx;
   margin: 10rpx;
- 
 }
-.content_item image{
+.content_item .good_img_wrap{
+  width: 100%;
+  height: 400rpx;
+  border: 1rpx solid #ccc;
+}
+.content_item .good_img_wrap image{
   width: 90%;
+  height: 90%;
   padding: 20rpx;
-   border: 1rpx solid #ccc;
 }
 .content_item .goods_title{
+  font-size: 26rpx;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
@@ -84,8 +90,22 @@
   padding-left: 5rpx;
   margin-top: 10rpx;
 }
-.content_item .goods_price{
-  color: red;
-  padding-left: 5rpx;
+.content_item .goods_price_row{
+  display: flex;
+  justify-content: start;
+  align-items: center;
   margin-top: 10rpx;
+}
+.content_item .goods_price_row .goods_price{
+  color: red;
+  font-size: 26rpx;
+}
+.content_item .goods_price_row .goods_condition{
+  margin-left: 20rpx;
+  font-size: 18rpx;
+  font-weight: bold;
+  color: #fff;
+  background: #ffa502;
+  padding: 2rpx;
+  border: 1px solid #ffa502;
 }

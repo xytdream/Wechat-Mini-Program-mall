@@ -11,7 +11,8 @@
   align-items: center;
 }
 .first_tab .good_item .good_img_wrap image{
-  width: 50%;
+  width: 200rpx;
+  height: 80%;
 }
 .first_tab .good_item .good_info_wrap{
   flex: 3;
@@ -20,14 +21,29 @@
   justify-content: space-around;
 }
 .first_tab .good_item .good_info_wrap .good_name{
+  font-size: 26rpx;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp:2;
 }
-.first_tab .good_item .good_info_wrap .good_price{
+.first_tab .good_item .good_info_wrap .good_price_row{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.first_tab .good_item .good_info_wrap .good_price_row .good_price{
   color: red;
-  font-size: 30rpx;
+  font-size: 26rpx;
+}
+.first_tab .good_item .good_info_wrap .good_price_row .good_condition{
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fff;
+  background: #ffa502;
+  padding: 5rpx;
+  border: 1px solid #ffa502;
 }
 
 .no_wran{

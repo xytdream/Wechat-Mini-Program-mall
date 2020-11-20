@@ -17,6 +17,7 @@
 
 const db = wx.cloud.database()
 const cp = db.collection("cart_products")
+const goods = db.collection("goods")
 const app = getApp()
 
 Page({
@@ -118,7 +119,7 @@ Page({
     cart.forEach(v => {
       if (v.checked) {
         totalNum++
-        totalPrice += Number(v.price)
+        totalPrice += Number(v.goodInfo.price)
       } else {
         allChecked = false
       }

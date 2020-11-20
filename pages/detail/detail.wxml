@@ -1,28 +1,38 @@
-<view class="detail_swiper">
+<!-- 发布者信息 -->
+<view class="good_owner_wrap">
+  <view class="good_owner">
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <view class="nickName">{{userInfo.nickName}}</view>
+  </view>
+</view>
+
+<!-- <view class="detail_swiper">
   <swiper circular autoplay indicator-dots>
-    <swiper-item wx:for="{{goodInfo[0].pics?goodInfo[0].pics:no_image}}" 
+    <swiper-item wx:for="{{goodInfo.goodImgs?goodInfo.goodImgs:no_image}}" 
     wx:key="index" bindtap="handlePreviewImage" data-url="{{item}}">
       <image src="{{item}}"></image>
     </swiper-item>
   </swiper>
+</view> -->
+<!-- 商品标题价格 -->
+<view class="good_title">{{goodInfo.title}}</view>
+<view class="good_price_row">
+  <view class="good_price">￥{{goodInfo.price}}</view>
+  <view class="good_condition">{{goodInfo.condition}}</view>
 </view>
 
-<view class="goods_price">￥{{goodInfo[0].price}}</view>
-<view class="goods_title_row">
-  <view class="goods_title">{{goodInfo[0].title}}</view>
-  <!-- <view class="goods_collect" bindtap="handleCollect">
-    <text class="iconfont {{isCollect?'iconshoucang3':'iconshoucang2'}}"></text>
-    <view class="collect_text">收藏</view>
-  </view> -->
-</view>
-
-<view class="goods_detail">
-  <view class="goods_detail_title">图文详情</view>
-  <view class="goods_detail_img" wx:for="{{goodInfo[0].intro_pics?goodInfo[0].intro_pics:no_image}}" wx:key="index"> 
+<view class="good_detail">
+  <view class="good_detail_title">图文详情</view>
+  <view class="good_introText">
+    <text>{{goodInfo.introText}}</text>
+  </view>
+  <view class="good_detail_img" wx:for="{{goodInfo.goodImgs?goodInfo.goodImgs:no_image}}" 
+      wx:key="index" bindtap="handlePreviewImage" data-url="{{item}}"> 
     <image src="{{item}}" mode="widthFix"></image>
   </view>
 </view>
 
+<!-- 底部工具栏 -->
 <view class="bottom_tool">
   <view class="tool_item">
     <text class="iconfont iconlianximaijia"></text>
@@ -41,8 +51,13 @@
   <view class="tool_item btn_addCart" bindtap="handleCartAdd">
     加入购物车
   </view>
-  <view class="tool_item btn_buy">
+  <!-- <view class="tool_item btn_buy">
     立即购买
-  </view>
+  </view> -->
 </view>
 
+
+<!-- <view class="goods_collect" bindtap="handleCollect">
+    <text class="iconfont {{isCollect?'iconshoucang3':'iconshoucang2'}}"></text>
+    <view class="collect_text">收藏</view>
+</view> -->

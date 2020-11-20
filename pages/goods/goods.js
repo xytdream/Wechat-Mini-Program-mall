@@ -33,18 +33,19 @@ Page({
    */
   onLoad: function (options) {
     //获取传递过来的参数
-    this.cid = options.cid||0
-    this.type_id = options.type_id||0
-    this.query = options.query||""
+    // this.cid = options.cid||0
+    // this.type_id = options.type_id||0
+    this.query = options.query
     // console.log(this.query)
-    if (this.cid !== 0){
-      this.getGoodsListByCid()
-    }else if(this.type_id !== 0){
-      this.getGoodsListByType()
-    }else{
-      // console.log(this.query)
-      this.getGoodsListByQuery()
-    }
+    // if (this.cid !== 0){
+    //   this.getGoodsListByCid()
+    // }else if(this.type_id !== 0){
+    //   this.getGoodsListByType()
+    // }else{
+    //   // console.log(this.query)
+    //   this.getGoodsListByQuery()
+    // }
+    this.getGoodsListByQuery()
     //获取商品铵价格升序的数组
     let _this = this
     setTimeout(function(){
@@ -103,13 +104,15 @@ Page({
     //关闭下拉刷新窗口 有则关闭，没有也不影响
     wx.stopPullDownRefresh()
   },
+
   //通过关键字获取商品列表
   getGoodsListByQuery() {
     goods.where({
       title: new db.RegExp({
         regexp:'.*'+ this.query,
         options: "ig"
-      })
+      }),
+      saleStatus:"待售出"
     }).get().then(res => {
       // console.log(res)
       this.setData({

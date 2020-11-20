@@ -1,0 +1,54 @@
+<view class="xt_sale">
+  <!-- 商品图片 -->
+  <view class="good_pics">
+    <!-- 选择图片前 -->
+    <view class="addPics" bindtap="handleAddPics" wx:if="{{goodImgs.length == 0}}">
+      <view class="iconfont icontubiaolunkuo-"></view>
+      <view class="addPics_title">添加图片</view>
+    </view>
+    <!-- 选择图片后展示图片 -->
+    <view class="showPics" wx:else>
+      <view class="pics_wrap" wx:for="{{goodImgs}}" wx:for-index="index" wx:key="index" bindlongtap="handleDeleteIcon">
+        <image src="{{item}}"></image>
+        <view class="iconfont iconshanchu2" wx:if="{{longtapFlag}}" bindtap="handleDeleteImg" data-index="{{index}}"></view>
+      </view>
+      <view class="iconfont icontianjiatupian1" wx:if="{{goodImgs.length < 9}}" bindtap="handleAddPics"></view>
+    </view>
+    <button wx:if="{{longtapFlag && goodImgs.length != 0}}" type="primary" bindtap="cancelLongtap">完成</button>
+  </view>
+
+  <!-- 标题 -->
+  <view class="good_title">
+    <input class="txt_title" placeholder="请输入商品标题..." maxlength="30" value="{{title}}" 
+          bindinput="handleTitleInput" type="text">
+    </input>
+    <text class="length_title">{{maxlength}}</text>
+  </view>
+
+  <!-- 商品文字介绍 -->
+  <view class="good_intro">
+    <textarea placeholder="请在这里描述您的宝贝：如品牌，规格，入手渠道，转手原因等等" maxlength="-1" 
+            bindinput="handleIntroTextInput" value="{{introText}}">
+    </textarea>
+  </view>
+
+  <!-- 价格 -->
+  <view class="good_price">
+    <text>价格：￥</text>
+    <input type="number" value="{{price}}" placeholder="输入宝贝价格" placeholder-style="font-size:26rpx"
+          bindinput="handlePriceInput">
+    </input>
+  </view>
+  
+  <!-- 商品成色-->
+  <view class="good_condition">
+    <view class="condition_title">成色：</view>
+    <radio-group class="condition_type" bindchange="handleRadioChange">
+      <radio wx:for-items="{{conditions}}" wx:key="name" value="{{item.value}}" checked="{{item.checked}}">
+        <text>{{item.value}}</text>
+      </radio>
+    </radio-group>
+  </view>
+   <!-- 发布 -->
+  <button type="primary" class="good_sale" bindtap="handlePublish">发布</button>
+</view>

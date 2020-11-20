@@ -38,7 +38,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onShow: function (options) {
     app.userInfo = wx.getStorageSync("userInfo")||{}
     this.getBannerList()
     this.getNavigateList()
@@ -48,18 +48,12 @@ Page({
   //点击导航操作
   handleItemSelect(e){
     // 获取传过来的type_id
-    const { type_id } = e.currentTarget.dataset
+    const { query } = e.currentTarget.dataset
     // console.log(type_id)
     // 对type_id进行判断，对应的id跳转对应的界面
-    if (type_id == 0) {
-      wx.switchTab({
-        url: '/pages/category/category',
-      })
-    } else{
-      wx.navigateTo({
-        url: '/pages/goods/goods?type_id=' + type_id,
-      })
-    } 
+    wx.navigateTo({
+      url: '/pages/goods/goods?query=' + query,
+    })
     
   },
 
@@ -67,9 +61,11 @@ Page({
    * 获取每日上新商品数据
    */
   getDailyGoods(){
-    goods.get().then(res => {
+    goods.where({
+      saleStatus:"待售出"
+    }).orderBy('date','desc').limit(6).get().then(res => {
       // console.log(res.data)
-      const dailyGoods = res.data.reverse()
+      const dailyGoods = res.data
       // console.log(dailyGoods)
       this.setData({
         dailyGoods

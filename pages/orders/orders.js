@@ -64,15 +64,20 @@ Page({
   handletabsItemChange(e) {
     //获取被点击的标题索引
     const { index } = e.detail
-    wx.navigateTo({
-      url: '/pages/orders/orders?id='+index,
-    })
-    // //修改原数组
-    // let { tabs } = this.data;
-    // tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)
-    // this.setData({
-    //   tabs
+    // wx.navigateTo({
+    //   url: '/pages/orders/orders?id='+index,
     // })
+    //修改原数组
+    let { tabs } = this.data;
+    tabs.forEach((v, i) => i === index ? v.isActive = true : v.isActive = false)
+    this.setData({
+      tabs
+    })
+    //修改页面参数,这是为了在当前类别点进商品详情后从商品详情返回仍然是当前类别，如果不这么做，每次返回都是第一次点进时的类别
+    const pages = getCurrentPages()
+    const currentPage = pages[pages.length - 1]
+    currentPage.options.id = index
+    // console.log(currentPage.options)
   },
 
   //获取全部订单列表

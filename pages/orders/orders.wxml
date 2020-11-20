@@ -9,12 +9,12 @@
                     url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
           <!-- 左侧图片容器 -->
           <view class="good_img_wrap">
-            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+            <image src="{{itemGoods.goodInfo.goodImgs[0]}}" mode="aspectFit"></image>
           </view>
-          <!-- zhong信息容器 -->
+          <!-- 中间信息容器 -->
           <view class="good_info_wrap">
-            <view class="good_name">{{itemGoods.title}}</view>
-            <view class="good_price">￥{{itemGoods.price}}</view>
+            <view class="good_name">{{itemGoods.goodInfo.title}}</view>
+            <view class="good_price">￥{{itemGoods.goodInfo.price}}</view>
           </view>
         </navigator>
         <!-- 订单信息 -->
@@ -58,12 +58,12 @@
                     url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
           <!-- 左侧图片容器 -->
           <view class="good_img_wrap">
-            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+            <image src="{{itemGoods.goodInfo.goodImgs[0]}}" mode="aspectFit"></image>
           </view>
           <!-- 右侧信息容器 -->
           <view class="good_info_wrap">
-            <view class="good_name">{{itemGoods.title}}</view>
-            <view class="good_price">￥{{itemGoods.price}}</view>
+            <view class="good_name">{{itemGoods.goodInfo.title}}</view>
+            <view class="good_price">￥{{itemGoods.goodInfo.price}}</view>
           </view>
         </navigator>
         <!-- 订单信息 -->
@@ -103,12 +103,12 @@
                     url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
           <!-- 左侧图片容器 -->
           <view class="good_img_wrap">
-            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+            <image src="{{itemGoods.goodInfo.goodImgs[0]}}" mode="aspectFit"></image>
           </view>
           <!-- zhong信息容器 -->
           <view class="good_info_wrap">
-            <view class="good_name">{{itemGoods.title}}</view>
-            <view class="good_price">￥{{itemGoods.price}}</view>
+            <view class="good_name">{{itemGoods.goodInfo.title}}</view>
+            <view class="good_price">￥{{itemGoods.goodInfo.price}}</view>
           </view>
         </navigator>
         <!-- 订单信息 -->
@@ -148,12 +148,12 @@
                     url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
           <!-- 左侧图片容器 -->
           <view class="good_img_wrap">
-            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+            <image src="{{itemGoods.goodInfo.goodImgs[0]}}" mode="aspectFit"></image>
           </view>
           <!-- 右侧信息容器 -->
           <view class="good_info_wrap">
-            <view class="good_name">{{itemGoods.title}}</view>
-            <view class="good_price">￥{{itemGoods.price}}</view>
+            <view class="good_name">{{itemGoods.goodInfo.title}}</view>
+            <view class="good_price">￥{{itemGoods.goodInfo.price}}</view>
           </view>
         </navigator>
         <!-- 订单信息 -->
@@ -193,12 +193,12 @@
                     url="/pages/detail/detail?goodsID={{itemGoods.goodsID}}">
           <!-- 左侧图片容器 -->
           <view class="good_img_wrap">
-            <image src="{{itemGoods.img}}" mode="widthFix"></image>
+            <image src="{{itemGoods.goodInfo.goodImgs[0]}}" mode="aspectFit"></image>
           </view>
           <!-- 右侧信息容器 -->
           <view class="good_info_wrap">
-            <view class="good_name">{{itemGoods.title}}</view>
-            <view class="good_price">￥{{itemGoods.price}}</view>
+            <view class="good_name">{{itemGoods.goodInfo.title}}</view>
+            <view class="good_price">￥{{itemGoods.goodInfo.price}}</view>
           </view>
         </navigator>
         <!-- 订单信息 -->

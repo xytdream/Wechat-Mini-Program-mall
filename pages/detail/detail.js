@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodInfo:[],
+    goodInfo:{},
+    userInfo:{},
     no_image:[
       'cloud://zs-t8s3y.7a73-zs-t8s3y-1300646863/NO/no_intro.png',
       'cloud://zs-t8s3y.7a73-zs-t8s3y-1300646863/NO/no_img.jpg',
@@ -23,6 +24,7 @@ Page({
 
 
   onShow: function () {
+    app.userInfo = wx.getStorageSync("userInfo") || {}
     // 获取当前页面栈
     let pages = getCurrentPages()
     //获取当前页面对象
@@ -39,14 +41,16 @@ Page({
   //获取商品详情数据
   getGoodsInfo(){
     goods.where({
-      goodsID: this.goodsID
+      _id: this.goodsID
     }).get().then(res =>{
-      const goodInfo = res.data
+      console.log(res.data)
+      const goodInfo = res.data[0]
+      const userInfo = goodInfo.userInfo
       // 获取收藏数据
       // let collect = wx.getStorageSync("collect")||[]
       // let isCollect = collect.some(v => v.goodsID === goodInfo[0].goodsID)
       this.setData({
-        goodInfo
+        goodInfo, userInfo
         // isCollect
       })
     })
@@ -55,27 +59,31 @@ Page({
   //点击图片预览
   handlePreviewImage(e){
     //构造要预览的图片数组
-    const urls = this.data.goodInfo[0].pics
+    const urls = this.data.goodInfo.goodImgs
     const current = e.currentTarget.dataset.url
     wx.previewImage({
       urls,
       current
     })
   },
+
   //获取购物车数据
   getCartInfo(callback){
+    console.log(this.goodsID)
     cp.where({
       goodsID: this.goodsID,
       _openid: app.userInfo.openid
     }).get().then(res => {
       this.cart_product = res.data
-      // console.log(this.cart_product)
+      console.log(this.cart_product)
       this.flag = this.cart_product.length
+      console.log(this.flag)
       callback()
     })
   },
   //添加购物车方法
   addCart(){
+    const {goodInfo} = this.data
     if (this.flag != 0) {
       //如果购物车中该商品已存在，提示用户
       wx.showToast({
@@ -86,10 +94,8 @@ Page({
       //如果购物车中没有该商品，将商品信息存入购物车表中，并提示用户添加成功
       cp.add({
         data: {
-          goodsID: this.data.goodInfo[0].goodsID,
-          price: this.data.goodInfo[0].price,
-          title: this.data.goodInfo[0].title,
-          img: this.data.goodInfo[0].main_img,
+          goodsID: goodInfo._id,
+          goodInfo: goodInfo,
           checked: false
         }
       }).then(res => {
@@ -113,7 +119,7 @@ Page({
     
   },
 
-  //点击收藏
+  // //点击收藏
   // handleCollect(){
   //   let isCollect = false
   //   let collect = wx.getStorageSync("collect")||[]

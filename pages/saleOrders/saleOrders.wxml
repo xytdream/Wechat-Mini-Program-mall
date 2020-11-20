@@ -1,0 +1,71 @@
+<tabs tabs="{{tabs}}" bindtabsItemChange="handletabsItemChange">
+  <!-- 已发布 -->
+  <block wx:if="{{tabs[0].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{publishGoods.length != 0}}">
+      <view class="order_detail" wx:for="{{publishGoods}}" wx:key="goodsID" wx:for-item="itemGoods" >
+        <!-- 商品信息 -->
+        <navigator class="good_item"  url="/pages/detail/detail?goodsID={{itemGoods._id}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.goodImgs[0]}}" mode="widthFix"></image>
+          </view>
+          <!-- 中间信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view class="order_btn" bindtap="handleCanclePublish" data-id='{{itemGoods._id}}'>不想卖了</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关商品</view>
+        <view class="warn_prompt">快去发布您的商品吧~</view>
+      </view>
+    </block>
+  </block>
+
+
+  <!-- 已售出 -->
+  <block wx:elif="{{tabs[1].isActive}}">
+    <!-- 有相关订单 -->
+    <block wx:if="{{saleGoods.length != 0}}">
+      <view class="order_detail" wx:for="{{saleGoods}}" wx:key="goodsID" wx:for-item="itemGoods" >
+        <!-- 商品信息 -->
+        <navigator class="good_item"  url="/pages/detail/detail?goodsID={{itemGoods._id}}">
+          <!-- 左侧图片容器 -->
+          <view class="good_img_wrap">
+            <image src="{{itemGoods.goodImgs[0]}}" mode="widthFix"></image>
+          </view>
+          <!-- 中间信息容器 -->
+          <view class="good_info_wrap">
+            <view class="good_name">{{itemGoods.title}}</view>
+            <view class="good_price">￥{{itemGoods.price}}</view>
+          </view>
+        </navigator>
+        <!-- 底部按钮 -->
+        <view class="order_btn_wrap">
+          <view class="order_btn" bindtap="handleConfirmSale" data-id='{{itemGoods._id}}'>确认发货</view>
+        </view>
+      </view>
+    </block>
+    <!-- 无相关订单 -->
+    <block wx:else>
+      <view class="order_null">
+        <text class="iconfont icondingdan"></text>
+        <view class="warn_text">您还没有相关商品</view>
+        <view class="warn_prompt">快去发布您的商品吧~</view>
+      </view>
+    </block>
+  </block>
+
+
+
+</tabs>

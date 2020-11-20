@@ -11,7 +11,9 @@
     "pages/login/login",
     "pages/collect/collect",
     "pages/orders/orders",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/sale/sale",
+    "pages/saleOrders/saleOrders"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,10 +32,10 @@
       "selectedIconPath": "images/index_s.png"
       },
       {
-        "pagePath": "pages/category/category",
-        "text": "分类",
-        "iconPath": "images/category.png",
-        "selectedIconPath": "images/category_s.png"
+        "pagePath": "pages/sale/sale",
+        "text": "发布",
+        "iconPath": "images/fabu.png",
+        "selectedIconPath": "images/fabu_s.png"
       },
       {
         "pagePath": "pages/cart/cart",
